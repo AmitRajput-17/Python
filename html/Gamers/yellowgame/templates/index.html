@@ -92,7 +92,7 @@
         <div class="container">
             <div class="nk-nav-table">
                 
-                <a href="index.html" class="nk-nav-logo">
+                <a href="{% url 'index' %}" class="nk-nav-logo">
                     <img src="{% static 'assets/images/logo.png' %}" alt="GoodGames" width="199">
                 </a>
                 
@@ -120,12 +120,23 @@
             <a href="#">
                Tending Games
                 
-			</a></li>
+            </a></li>
+                            <li class=" nk-drop-item">
+                                {% if user.is_authenticated %}
+                                    <a href="{% url 'logout' %}">
+                                        Logout
+                                    </a></li>
+                                {% else %}        
+                                <a href="{% url 'login' %}?next={{request.path}}">Login</a>
+                
+                                    </a>
+                                {% endif %}</li>
+
                         
       
                 </ul>
                 <ul class="nk-nav nk-nav-right nk-nav-icons">
-                    <img src="assets/images/logo.png" alt="" class="mobile-logo" style="float: left; width: 139px;">
+                    <img src="{% static 'assets/images/logo.png' %}" alt="" class="mobile-logo" style="float: left; width: 139px;">
                         <li class="single-icon d-lg-none">
                             <a href="#" class="no-link-effect" data-nav-toggle="#nk-nav-mobile">
                                 <span class="nk-icon-burger">
@@ -159,7 +170,7 @@
 <div id="nk-nav-mobile" class="nk-navbar nk-navbar-side nk-navbar-right-side nk-navbar-overlay-content d-lg-none">
     <div class="nano">
         <div class="nano-content">
-            <a href="index.html" class="nk-nav-logo">
+            <a href="{% url 'index' %}" class="nk-nav-logo">
                 <img src="{% static 'assets/images/logo.png' %}" alt="" width="120">
             </a>
             <div class="nk-navbar-mobile-content">

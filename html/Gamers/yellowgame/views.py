@@ -3,7 +3,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    return render (request, 'index1.html')
+    return render (request, 'index.html')
 
 def singlegame(request):
-    return render (request, 'single_game.html')
+    return render (request, 'single-game.html')
