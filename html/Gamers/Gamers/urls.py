@@ -24,7 +24,7 @@ urlpatterns = [
     path('',include('users.urls')),
     path('',include('ApiApp.urls')),
     path('api-auth/', include('rest_framework.urls')), 
-    path('token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/', jwt_views.TokenObtainPairView.as_view(), name='token'),
     path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 
 ]
